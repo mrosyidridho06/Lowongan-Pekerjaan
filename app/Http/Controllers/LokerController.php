@@ -1,12 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\loker;
-use App\Model\Seller;
+
 
 
 class LokerController extends Controller
@@ -20,7 +17,7 @@ class LokerController extends Controller
     public function index()
     {
         $loker = loker::orderBy('id','asc')->paginate(5);
-        return view('lowongan_pekerjaan.detail',compact('detail'))
+        return view('lowongan_pekerjaan.detail',compact('loker'))
                 ->with('i',(request()->input('page',1) -1)*5);
     }
 
@@ -57,7 +54,7 @@ class LokerController extends Controller
 
 
         
-        return redirect()->route('lowongan_pekerjaan.detail')
+        return redirect()->route('loker.index')
                          ->with('success','Data berhasil ditambahkan');
     }
 

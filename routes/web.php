@@ -26,14 +26,6 @@ Route::get('/lowongan', function () {
     return view('layouts.lowongan');
 })->middleware(['auth'])->name('lowongan');
 
-Route::get('tambahloker', function () {
-    return view('pasang_loker.tambahloker');
-});
-
-Route::get('editloker', function () {
-    return view('pasang_loker.editloker');
-});
-
 Route::get('detail', function () {
     return view('lowongan_pekerjaan.detail');
 });
